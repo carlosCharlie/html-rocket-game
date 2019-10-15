@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #11002C;
+    overflow: hidden;
+}
+
+#start{
+    font-size: 800%;
+    position: absolute;
+    top:40vh;
+    left: 40vw;
+    border: solid #BDC3C7 5px;
+    color: #BDC3C7;
+    border-radius: 10px;
+    padding-left: 50px;
+    padding-right:50px;
+}
+
+#start:hover{
+    color: #E05641;
+    border-color:#E05641;
+}
+
+h3{
+    font-size: 700%;
+    color: #BDC3C7;
+}
