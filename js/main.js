@@ -12,7 +12,7 @@ let score;
 
 function checkCollision(){
     for(ob of obstacles){
-        if( (ob.x<=rocket.x+rocket.width-5)&&(ob.x+ob.width>rocket.x+5) &&
+        if( (ob.x<=rocket.x+rocket.width-10)&&(ob.x+ob.width>rocket.x) &&
             !((rocket.y+rocket.height<ob.y) || (ob.y+ob.height<rocket.y))    
         ){
             ob.collided=true;
@@ -131,7 +131,7 @@ window.onload=function(){
         obstacles = []
         for(let i=0; i<NUM_OBSTACLES; i++){
 
-            let size = Math.floor(Math.random() * 60)+20;
+            let size = Math.floor(Math.random() * 30)+10;
             obstacles.push({
                 id:i,
                 x:(Math.floor(Math.random() * window.innerWidth))+window.innerWidth,

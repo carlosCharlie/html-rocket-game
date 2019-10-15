@@ -29,3 +29,7 @@ h3{
     font-size: 700%;
     color: #BDC3C7;
 }
+
+img{
+    z-index: -1;
+}
