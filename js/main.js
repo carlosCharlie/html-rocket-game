@@ -131,7 +131,7 @@ window.onload=function(){
         obstacles = []
         for(let i=0; i<NUM_OBSTACLES; i++){
 
-            let size = Math.floor(Math.random() * 100)+70;
+            let size = Math.floor(Math.random() * 90)+60;
             obstacles.push({
                 id:i,
                 x:(Math.floor(Math.random() * window.innerWidth))+window.innerWidth,
