@@ -9,6 +9,9 @@ body{
     height: 100vh;
 }
 
+html {
+    background-color: #11002C;
+}
 #start{
     font-size: 10vw;
     position: absolute;

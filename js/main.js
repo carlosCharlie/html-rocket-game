@@ -115,10 +115,7 @@ window.onload=function(){
     let start = document.getElementById("start");
     start.onclick = ()=>{
         
-        if(!fullscreenAsked){
-            document.body.requestFullscreen();
-            fullscreenAsked = true;
-        }
+        document.body.requestFullscreen().then(()=>fullscreenAsked=false);
         
         score = 0;
 
