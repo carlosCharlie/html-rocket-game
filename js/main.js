@@ -9,7 +9,7 @@ let obstacles = [];
 let dir = null;
 let loop;
 let score;
-
+let fullscreenAsked = false;
 
 function checkCollision(){
     for(ob of obstacles){
@@ -98,7 +98,6 @@ window.onload=function(){
                     dir = +ROCKET_VELOCITY;
                 break;
         }
-        x=1
     }
 
     //click listener (for Phone)
@@ -115,6 +114,11 @@ window.onload=function(){
     //start button
     let start = document.getElementById("start");
     start.onclick = ()=>{
+        
+        if(!fullscreenAsked){
+            document.body.requestFullscreen();
+            fullscreenAsked = true;
+        }
         
         score = 0;
 
