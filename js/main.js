@@ -1,7 +1,8 @@
 
-const ROCKET_VELOCITY = 50; 
-const OBSTACLES_VELOCITY = 2;
-const NUM_OBSTACLES = 8;
+const ROCKET_VELOCITY = 46;
+const ROCKET_VELOCITY_PHONE = 46; 
+const OBSTACLES_VELOCITY = 1;
+const NUM_OBSTACLES = 6;
 
 let rocket;
 let obstacles = [];
@@ -26,11 +27,8 @@ function checkCollision(){
 
 //rocket movement
 function move(){
-
-    if(dir!=null&&Math.abs(dir)>1){
-        dir=(Math.abs(dir)-7)*((Math.abs(dir)/dir)); //smoothing the movement...
-        rocket.y+=dir;
-    }
+    rocket.y+=dir;
+    dir=0;
 }
 
 function render(){
@@ -87,11 +85,12 @@ function mainLoop(){
 //all initializations goes here
 window.onload=function(){
 
-    //key listeners
+    //key listeners (for Desktop)
     document.body.onkeydown = function(handler){
+
         switch(handler.key){
             case "ArrowUp":
-                if(rocket.y>20)
+                if(rocket.y>=80)
                     dir = -ROCKET_VELOCITY;
                 break;
             case "ArrowDown":
@@ -101,6 +100,17 @@ window.onload=function(){
         }
         x=1
     }
+
+    //click listener (for Phone)
+    document.body.onclick = function(data){
+
+        if(data.clientY<window.innerHeight/2){
+            if(rocket.y>=80)
+                dir = -ROCKET_VELOCITY_PHONE;
+        }else if (rocket.y<window.innerHeight-120)
+                dir = +ROCKET_VELOCITY_PHONE;
+    }
+
 
     //start button
     let start = document.getElementById("start");
@@ -116,7 +126,7 @@ window.onload=function(){
         rocket = {
                 id: "rocket",
                 x:window.innerWidth/8,
-                y:window.innerHeight/2,
+                y:(window.innerHeight/2)-(ROCKET_VELOCITY_PHONE),
                 width:window.innerWidth/8,
                 height:(window.innerWidth/30),
                 collided: false
